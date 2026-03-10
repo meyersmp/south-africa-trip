@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Africa 2026 — Meyers Family Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0c0b09; color: #f0ece4; line-height: 1.6;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(200,149,108,0.3); color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0c0b09; }
+::-webkit-scrollbar-thumb { background: #2a2520; border-radius: 4px; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: url('https://images.pexels.com/photos/1502311/pexels-photo-1502311.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+  transform: scale(1.05);
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.15); } }
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to bottom, rgba(12,11,9,0.3) 0%, rgba(12,11,9,0.5) 50%, rgba(12,11,9,0.95) 100%);
+}
+.hero-content { position: relative; z-index: 2; padding: 2rem; }
+.hero-eyebrow {
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+  color: #c8956c; margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3.5rem, 9vw, 8rem); font-weight: 900; line-height: 0.95;
+  letter-spacing: -0.03em; margin-bottom: 1rem;
+  background: linear-gradient(to bottom, #ffffff, #d0c8be);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 400; font-style: italic;
+  color: #b0a99e; margin-bottom: 0.5rem;
+}
+.hero-dates {
+  font-size: 0.9rem; font-weight: 500; letter-spacing: 0.15em;
+  color: #6b6560; margin-top: 0.5rem;
+}
+.scroll-arrow {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  z-index: 2; width: 30px; height: 50px; border: 2px solid rgba(200,149,108,0.4);
+  border-radius: 15px; cursor: pointer;
+}
+.scroll-arrow::after {
+  content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 10px; background: #c8956c; border-radius: 2px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
+}
+
+/* ===== JOURNEY TIMELINE ===== */
+.timeline {
+  display: flex; align-items: center; justify-content: center; gap: 0;
+  padding: 4rem 2rem 3rem; max-width: 800px; margin: 0 auto;
+  flex-wrap: wrap;
+}
+.timeline-stop {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  position: relative; z-index: 1;
+}
+.timeline-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #c8956c; border: 3px solid #0c0b09;
+  box-shadow: 0 0 0 2px #c8956c;
+}
+.timeline-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: #c8956c; white-space: nowrap;
+}
+.timeline-dates { font-size: 0.7rem; color: #6b6560; white-space: nowrap; }
+.timeline-line {
+  flex: 1; min-width: 40px; height: 2px;
+  background: linear-gradient(to right, #c8956c, rgba(200,149,108,0.3), #c8956c);
+  margin: 0 -2px; margin-bottom: 2.2rem;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1200px; margin: 0 auto; padding: 5rem 2rem 2rem;
+}
+.section-eyebrow {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: #c8956c; margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700;
+  line-height: 1.15; margin-bottom: 0.75rem;
+  color: #f0ece4;
+}
+.section-desc {
+  font-size: 1.05rem; font-weight: 300; color: #a09a94;
+  max-width: 650px; line-height: 1.7; margin-bottom: 2.5rem;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.grid { display: grid; gap: 1rem; margin-bottom: 1rem; }
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid-2-1 { grid-template-columns: 2fr 1fr; }
+.grid-1-2 { grid-template-columns: 1fr 2fr; }
+
+/* ===== PHOTO CARDS ===== */
+.card {
+  position: relative; overflow: hidden; border-radius: 14px;
+  aspect-ratio: 16/11; cursor: pointer;
+  background: linear-gradient(135deg, #1a1510, #2a1f15);
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,149,108,0.1);
+}
+.card.wide { aspect-ratio: 21/9; }
+.card.tall { aspect-ratio: 3/4; }
+.card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.card:hover img { transform: scale(1.06); }
+.card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(12,11,9,0.9) 0%, rgba(12,11,9,0.3) 40%, transparent 70%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1.5rem; transition: background 0.4s ease;
+}
+.card:hover .card-overlay {
+  background: linear-gradient(to top, rgba(12,11,9,0.95) 0%, rgba(12,11,9,0.4) 50%, rgba(12,11,9,0.1) 70%);
+}
+.card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem;
+}
+.card-location {
+  font-size: 0.8rem; font-weight: 500; color: #c8956c;
+  letter-spacing: 0.05em;
+}
+.card-arrow {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(200,149,108,0.15); backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(5px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.card:hover .card-arrow { opacity: 1; transform: translateY(0); }
+.card-arrow svg { width: 16px; height: 16px; stroke: #c8956c; fill: none; stroke-width: 2; }
+
+/* ===== CALLOUT ===== */
+.callout {
+  background: linear-gradient(135deg, rgba(200,149,108,0.08), rgba(200,149,108,0.03));
+  border-left: 3px solid #c8956c; border-radius: 0 12px 12px 0;
+  padding: 1.5rem 2rem; margin: 1.5rem 0;
+  font-size: 0.95rem; line-height: 1.7; color: #b0a99e;
+}
+.callout strong { color: #daa87f; font-weight: 600; }
+
+/* ===== DIVIDER ===== */
+.divider {
+  max-width: 1200px; margin: 2rem auto;
+  height: 1px; background: linear-gradient(to right, transparent, rgba(200,149,108,0.15), transparent);
+}
+
+/* ===== CLOSING ===== */
+.closing {
+  text-align: center; padding: 6rem 2rem 3rem;
+  max-width: 700px; margin: 0 auto;
+}
+.closing-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+  margin-bottom: 1rem; color: #f0ece4;
+}
+.closing-text {
+  font-size: 1.1rem; font-weight: 300; color: #8a8580; line-height: 1.8;
+}
+.footer {
+  text-align: center; padding: 2rem; color: #3a3530; font-size: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.modal.active { opacity: 1; visibility: visible; }
+.modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(6,5,4,0.88); backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+.modal-card {
+  position: relative; z-index: 1;
+  width: 90vw; max-width: 680px; max-height: 90vh;
+  background: #161412; border-radius: 20px;
+  overflow: hidden; overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.modal.active .modal-card { transform: translateY(0) scale(1); }
+.modal-card::-webkit-scrollbar { width: 6px; }
+.modal-card::-webkit-scrollbar-thumb { background: #2a2520; border-radius: 3px; }
+.modal-img {
+  width: 100%; aspect-ratio: 16/9; object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.modal-body { padding: 2rem 2rem 2.5rem; }
+.modal-location-tag {
+  display: inline-block; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #c8956c;
+  background: rgba(200,149,108,0.1); padding: 0.3rem 0.8rem;
+  border-radius: 20px; margin-bottom: 1rem;
+}
+.modal-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.modal-desc {
+  font-size: 1rem; font-weight: 300; color: #a09a94;
+  line-height: 1.8; margin-bottom: 1.5rem;
+}
+.modal-cta {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, #c8956c, #b07a4a);
+  color: #0c0b09; font-weight: 600; font-size: 0.9rem;
+  padding: 0.85rem 1.8rem; border-radius: 50px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+.modal-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200,149,108,0.3);
+}
+.modal-cta svg {
+  width: 16px; height: 16px; stroke: currentColor; fill: none;
+  stroke-width: 2.5; transition: transform 0.3s;
+}
+.modal-cta:hover svg { transform: translateX(3px); }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem; z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(12,11,9,0.7); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #f0ece4; font-size: 1.3rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s, transform 0.3s;
+}
+.modal-close:hover { background: rgba(200,149,108,0.2); transform: scale(1.1); }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+  .card.wide { aspect-ratio: 16/10; }
+  .section { padding: 3rem 1.2rem 1.5rem; }
+  .hero h1 { font-size: 3.2rem; }
+  .timeline { flex-direction: column; gap: 0; padding: 3rem 2rem 2rem; }
+  .timeline-line { width: 2px; min-width: 2px; height: 30px; margin: 0; margin-left: 0; }
+  .timeline-stop { flex-direction: row; gap: 1rem; }
+  .modal-card { width: 95vw; max-height: 95vh; border-radius: 14px; }
+  .modal-body { padding: 1.5rem; }
+  .modal-title { font-size: 1.4rem; }
+  .callout { padding: 1.2rem 1.5rem; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.6rem; }
+  .hero-sub { font-size: 1rem; }
+  .card { aspect-ratio: 4/3; }
+  .card.wide { aspect-ratio: 4/3; }
+  .section { padding: 2.5rem 1rem 1rem; }
+  .section-title { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Summer 2026</div>
+    <h1>South Africa</h1>
+    <div class="hero-sub">A Meyers Family Adventure</div>
+    <div class="hero-dates">JUNE 21 &mdash; JULY 5, 2026</div>
+  </div>
+  <div class="scroll-arrow" onclick="document.querySelector('.timeline').scrollIntoView({behavior:'smooth'})"></div>
+</div>
+
+<!-- ===== JOURNEY TIMELINE ===== -->
+<div class="timeline reveal">
+  <div class="timeline-stop">
+    <div class="timeline-dot"></div>
+    <div class="timeline-label">Johannesburg</div>
+    <div class="timeline-dates">Jun 22–23</div>
+  </div>
+  <div class="timeline-line"></div>
+  <div class="timeline-stop">
+    <div class="timeline-dot"></div>
+    <div class="timeline-label">Kruger Safari</div>
+    <div class="timeline-dates">Jun 24–27</div>
+  </div>
+  <div class="timeline-line"></div>
+  <div class="timeline-stop">
+    <div class="timeline-dot"></div>
+    <div class="timeline-label">Garden Route</div>
+    <div class="timeline-dates">Jun 28–Jul 1</div>
+  </div>
+  <div class="timeline-line"></div>
+  <div class="timeline-stop">
+    <div class="timeline-dot"></div>
+    <div class="timeline-label">Cape Town</div>
+    <div class="timeline-dates">Jul 2–5</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== JOHANNESBURG ===== -->
+<div class="section">
+  <div class="section-eyebrow reveal">First Stop</div>
+  <div class="section-title reveal">Johannesburg</div>
+  <div class="section-desc reveal">Your adventure begins in Africa's most dynamic city. A place of gold, grit, and transformation — where history runs deep and the future burns bright.</div>
+
+  <div class="grid grid-2">
+    <div class="card reveal"
+      data-title="The City of Gold"
+      data-location="Johannesburg, Gauteng"
+      data-desc="Johannesburg pulses with energy — from rooftop bars overlooking the skyline to world-class museums, vibrant street art in Maboneng, and a booming food scene that rivals any capital. This is modern South Africa, unfiltered."
+      data-link="https://www.southafrica.net/gl/en/travel/article/10-reasons-why-joburg-is-the-coolest-city-in-africa"
+      data-linktext="Discover Johannesburg">
+      <img src="https://images.pexels.com/photos/33622138/pexels-photo-33622138.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Johannesburg Sandton skyline at night" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">City of Gold</div>
+        <div class="card-location">Johannesburg</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="Apartheid Museum"
+      data-location="Johannesburg"
+      data-desc="One of the most powerful museum experiences in the world. Walk through the harrowing and ultimately triumphant story of South Africa's struggle for freedom. An unforgettable experience for the whole family — raw, honest, and deeply moving."
+      data-link="https://www.apartheidmuseum.org/"
+      data-linktext="Plan Your Visit">
+      <img src="https://images.pexels.com/photos/10527763/pexels-photo-10527763.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Apartheid Museum" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Apartheid Museum</div>
+        <div class="card-location">Johannesburg</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== KRUGER SAFARI ===== -->
+<div class="section">
+  <div class="section-eyebrow reveal">Into the Wild</div>
+  <div class="section-title reveal">Kruger National Park</div>
+  <div class="section-desc reveal">Three million acres of untamed African wilderness. This is where your family will witness nature at its most raw, magnificent, and humbling. Early mornings. Golden light. Animals you've only seen on screen — now close enough to hear breathe.</div>
+
+  <div class="grid grid-1">
+    <div class="card wide reveal"
+      data-title="The African Bush"
+      data-location="Kruger National Park"
+      data-desc="Kruger is one of the largest game reserves in Africa, home to over 147 mammal species. Self-drive through the park at sunrise, stop when an elephant crosses the road, watch a family of hippos from a bridge. Every day brings something you've never seen before."
+      data-link="https://www.nationalgeographic.com/travel/article/self-drive-budget-safari-kruger-south-africa"
+      data-linktext="Read the Nat Geo Guide">
+      <img src="https://images.pexels.com/photos/1502311/pexels-photo-1502311.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="African savanna sunset" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Sunrise Over the Bush</div>
+        <div class="card-location">Kruger National Park</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card reveal"
+      data-title="African Elephants"
+      data-location="Kruger National Park"
+      data-desc="Watch herds of elephants cross the road just meters from your vehicle. Mothers with calves, bulls flapping their ears in warning, babies stumbling through the dust. In Kruger, you're in their world — and they know it."
+      data-link="https://www.southafrica.net/gl/en/travel/article/exhilarating-and-awe-inspiring-south-africa-s-big-five"
+      data-linktext="Meet the Big Five">
+      <img src="https://images.pexels.com/photos/16049577/pexels-photo-16049577.jpeg?auto=compress&cs=tinysrgb&w=800" alt="African elephant" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">African Elephants</div>
+        <div class="card-location">Kruger National Park</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="King of the Bush"
+      data-location="Kruger National Park"
+      data-desc="Heart pounding, engine off, windows down. A pride of lions resting in the morning sun — close enough to hear them breathe. Kruger has one of the highest densities of lions in Africa, and sightings are almost guaranteed over a 3-4 day stay."
+      data-link="https://www.krugerpark.co.za/africa_lion.html"
+      data-linktext="Lions of Kruger">
+      <img src="https://images.pexels.com/photos/28924821/pexels-photo-28924821.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Male lion" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Lions</div>
+        <div class="card-location">Kruger National Park</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-2"
+      data-title="Giraffes at Dawn"
+      data-location="Kruger National Park"
+      data-desc="The early morning game drive is when the magic happens. Giraffes silhouetted against the sunrise, impala sprinting through golden grass, a jackal trotting along the road. Set your alarm for 5am — you won't regret it."
+      data-link="https://www.sanparks.org/parks/kruger/"
+      data-linktext="Plan Your Safari">
+      <img src="https://images.pexels.com/photos/29862073/pexels-photo-29862073.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Giraffes" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Giraffes at Dawn</div>
+        <div class="card-location">Kruger National Park</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <strong>The splurge that matters most:</strong> Every family who visits Kruger says the same thing — one night at a private safari lodge with expert trackers is the single most unforgettable experience of the entire trip. Night drives reveal leopards, hyenas, and nocturnal hunters you'll never see on a self-drive. This is where memories become stories you tell for decades.
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card reveal"
+      data-title="Guided Game Drive"
+      data-location="Kruger National Park"
+      data-desc="Expert trackers who can spot a leopard at 300 meters. Open-vehicle drives that bring you closer to the action than any self-drive. Night drives that reveal a completely different, electrifying world. If you do one splurge on this trip, make it this."
+      data-link="https://www.sanparks.org/parks/kruger/tourism/activities/"
+      data-linktext="Book a Game Drive">
+      <img src="https://images.pexels.com/photos/4404518/pexels-photo-4404518.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Safari game drive vehicle" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Guided Game Drive</div>
+        <div class="card-location">Private Reserve</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="The Elusive Leopard"
+      data-location="Kruger National Park"
+      data-desc="Spotting a leopard draped in a marula tree is the holy grail of safari. They're elusive, beautiful, and breathtaking. Night drives with expert trackers dramatically increase your chances — the spotlight catches their eyes glowing in the dark."
+      data-link="https://www.krugerpark.co.za/africa_leopard.html"
+      data-linktext="Tracking Leopards">
+      <img src="https://images.pexels.com/photos/7391464/pexels-photo-7391464.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Leopard" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">The Elusive Leopard</div>
+        <div class="card-location">Kruger National Park</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== GARDEN ROUTE ===== -->
+<div class="section">
+  <div class="section-eyebrow reveal">The Open Road</div>
+  <div class="section-title reveal">The Garden Route</div>
+  <div class="section-desc reveal">One of the world's legendary road trips. 300 kilometers of dramatic coastline, ancient forests, and charming seaside towns. Every bend in the road reveals something that makes you pull over and stare.</div>
+
+  <div class="grid grid-1">
+    <div class="card wide reveal"
+      data-title="The Garden Route"
+      data-location="Western Cape to Eastern Cape"
+      data-desc="Wind along the N2 highway past towering cliffs, turquoise lagoons, and hidden beaches. Stop in Knysna for oysters, Wilderness for kayaking, Storms River for suspension bridges over churning seas. This stretch of coast will take your breath away — every single day."
+      data-link="https://www.nationalgeographic.com/travel/article/partner-content-ultimate-road-trip-garden-route"
+      data-linktext="Nat Geo Road Trip Guide">
+      <img src="https://images.pexels.com/photos/13770550/pexels-photo-13770550.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="South African coastline" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">300 Kilometers of Paradise</div>
+        <div class="card-location">The Garden Route</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <strong>June timing bonus:</strong> Hermanus is one of the world's best land-based whale watching spots, and late June marks the start of Southern Right Whale season. You may see whales breaching right from the cliff path — no boat needed. The town has a "whale crier" who walks the streets blowing a kelp horn when whales are spotted.
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card reveal"
+      data-title="Whale Watching"
+      data-location="Hermanus, Western Cape"
+      data-desc="Southern Right Whales breach and play just offshore — close enough to see from the cliff path. Hermanus is the whale capital of the world, and your timing in late June catches the very start of the season. Watch mothers teach calves to breach. Unforgettable."
+      data-link="https://www.whalehermanus.com/"
+      data-linktext="Whale Season Info">
+      <img src="https://images.pexels.com/photos/3635870/pexels-photo-3635870.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Whale breaching" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Whale Watching</div>
+        <div class="card-location">Hermanus</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="Ancient Forests"
+      data-location="Tsitsikamma National Park"
+      data-desc="Walk among 700-year-old yellowwood trees. Cross the famous suspension bridge over Storms River Mouth, where forest meets ocean in spectacular fashion. Zip-line through the canopy 30 meters above the forest floor. Nature at its most primeval."
+      data-link="https://www.sanparks.org/parks/garden-route/camps/storms-river-mouth"
+      data-linktext="Explore Tsitsikamma">
+      <img src="https://images.pexels.com/photos/28548827/pexels-photo-28548827.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Forest canopy walkway" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Tsitsikamma Forests</div>
+        <div class="card-location">Storms River</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-2"
+      data-title="Shark Cage Diving"
+      data-location="Gansbaai, Western Cape"
+      data-desc="The cage goes down. The ocean goes quiet. And then — a shadow emerges from the blue. Face to face with a Great White Shark, separated by nothing but steel bars and adrenaline. This is the adventure that earns bragging rights for life."
+      data-link="https://sharkwatchsa.com/"
+      data-linktext="Book the Dive">
+      <img src="https://images.pexels.com/photos/18558758/pexels-photo-18558758.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Great white shark" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Shark Cage Diving</div>
+        <div class="card-location">Gansbaai</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card reveal"
+      data-title="World's Highest Bungee"
+      data-location="Bloukrans Bridge, Garden Route"
+      data-desc="216 meters of pure freefall. The world's highest commercial bungee jump, with a 100% safety record and a Guinness World Record to prove it. The question isn't whether it's safe — it's whether you're brave enough. Who in the family will take the leap?"
+      data-link="https://bloukransbungy.com/"
+      data-linktext="Take the Leap">
+      <img src="https://images.pexels.com/photos/10871498/pexels-photo-10871498.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bungee jumping from bridge" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Bloukrans Bungee</div>
+        <div class="card-location">216m — World's Highest</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="Cape Winelands"
+      data-location="Stellenbosch & Franschhoek"
+      data-desc="World-class wines in one of the most beautiful settings on earth. Rolling vineyards framed by dramatic mountain peaks. The food rivals anything in Europe. Stellenbosch and Franschhoek are easy day trips — and a perfect contrast to the wild adventure of the rest of the trip."
+      data-link="https://www.wine.co.za/"
+      data-linktext="Wine Tasting Guide">
+      <img src="https://images.pexels.com/photos/31447951/pexels-photo-31447951.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Vineyard landscape" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Cape Winelands</div>
+        <div class="card-location">Stellenbosch</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== CAPE TOWN ===== -->
+<div class="section">
+  <div class="section-eyebrow reveal">Grand Finale</div>
+  <div class="section-title reveal">Cape Town</div>
+  <div class="section-desc reveal">The grand finale. Where mountains plunge into two oceans, penguins waddle on white sand beaches, and every sunset is a masterpiece. Often called the most beautiful city on earth — and it doesn't disappoint.</div>
+
+  <div class="grid grid-1">
+    <div class="card wide reveal"
+      data-title="Table Mountain"
+      data-location="Cape Town"
+      data-desc="Ride the iconic rotating cable car to the summit for 360-degree views of the city, the Atlantic Ocean, and the Cape Peninsula stretching into the distance. Flat-topped and cloud-wrapped, Table Mountain is one of the New7Wonders of Nature — and the view from the top will redefine your understanding of the word 'beautiful.'"
+      data-link="https://www.tablemountaincablecar.com/"
+      data-linktext="Plan Your Visit">
+      <img src="https://images.pexels.com/photos/3889935/pexels-photo-3889935.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Table Mountain panorama" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Table Mountain</div>
+        <div class="card-location">New7Wonders of Nature</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card reveal"
+      data-title="Tandem Paragliding"
+      data-location="Signal Hill, Cape Town"
+      data-desc="Launch from Signal Hill and soar over the Atlantic with Table Mountain as your backdrop. Tandem flights welcome ages 10+ and no experience needed. One group paraglides while the other watches from the beach below — the perfect family split activity."
+      data-link="https://flycapetown.co.za/"
+      data-linktext="Book Your Flight">
+      <img src="https://images.pexels.com/photos/2162685/pexels-photo-2162685.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Paragliding over ocean" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Paragliding</div>
+        <div class="card-location">Signal Hill</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="Bo-Kaap"
+      data-location="Cape Town"
+      data-desc="Wander the rainbow-colored streets of Cape Town's most photographed neighborhood. Originally home to freed slaves, Bo-Kaap is a living museum of Cape Malay culture, with cobblestone lanes, the scent of bobotie drifting from open windows, and colors that pop against the mountain backdrop."
+      data-link="https://www.capetown.travel/neighbourhood/bo-kaap/"
+      data-linktext="Explore Bo-Kaap">
+      <img src="https://images.pexels.com/photos/8912045/pexels-photo-8912045.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bo-Kaap colorful houses" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Bo-Kaap</div>
+        <div class="card-location">Cape Town</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-2"
+      data-title="African Penguins"
+      data-location="Boulders Beach, Simon's Town"
+      data-desc="Walk among hundreds of African penguins on a pristine white sand beach. They waddle right past you on the boardwalk — completely unimpressed by their own adorableness. One of the most unique wildlife encounters in the world, and the kids will never forget it."
+      data-link="https://www.capetown.travel/get-to-know-the-african-penguins-at-boulders-beach/"
+      data-linktext="Meet the Penguins">
+      <img src="https://images.pexels.com/photos/3677175/pexels-photo-3677175.jpeg?auto=compress&cs=tinysrgb&w=800" alt="African penguins on beach" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Boulders Beach Penguins</div>
+        <div class="card-location">Simon's Town</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <strong>Family highlight:</strong> Paragliding tandem flights launch from Signal Hill and soar over the city with Table Mountain as your backdrop. Ages 10+ can fly — no experience needed. One group paraglides while the other watches from the beach below. Book for golden hour and the views are beyond words.
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card reveal"
+      data-title="Cape of Good Hope"
+      data-location="Cape Peninsula"
+      data-desc="Stand at the southwestern tip of Africa where the Atlantic and Indian Oceans collide. Dramatic cliffs, wild coastline, baboons, ostriches, and the lighthouse trail with views that stretch to the edge of the earth. A place that feels like the end of the world — in the best possible way."
+      data-link="https://www.sanparks.org/parks/table-mountain/what-to-do/attractions/cape-of-good-hope-cape-point"
+      data-linktext="Visit the Cape">
+      <img src="https://images.pexels.com/photos/32103725/pexels-photo-32103725.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cape of Good Hope coastline" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Cape of Good Hope</div>
+        <div class="card-location">Where Two Oceans Meet</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+    <div class="card reveal reveal-delay-1"
+      data-title="Lion's Head Sunset Hike"
+      data-location="Cape Town"
+      data-desc="The golden hour hike that every visitor to Cape Town raves about. A moderate climb rewarded with 360-degree sunset views — Table Mountain on one side, the Atlantic on the other, and the city glittering below as the sky turns every shade of orange and pink."
+      data-link="https://www.capetown.travel/lions-head/"
+      data-linktext="Plan Your Hike">
+      <img src="https://images.pexels.com/photos/27495638/pexels-photo-27495638.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cape Town at sunset" onerror="this.style.display='none'">
+      <div class="card-overlay">
+        <div class="card-title">Lion's Head Sunset</div>
+        <div class="card-location">Cape Town</div>
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== CLOSING ===== -->
+<div class="closing">
+  <div class="closing-title reveal">This is going to be incredible.</div>
+  <div class="closing-text reveal">
+    Two weeks. Johannesburg to Cape Town. Lions and leopards at dawn. Whales breaching from the cliffs. Penguins on white sand. The world's highest bungee. Wine country sunsets. And a Table Mountain cable car ride that'll make you forget how to speak.<br><br>
+    <span style="color:#c8956c; font-weight:500;">Summer 2026. Let's do this.</span>
+  </div>
+</div>
+
+<div class="footer">
+  Meyers Family &mdash; South Africa 2026
+</div>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-location-tag" id="modal-location"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+      <a class="modal-cta" id="modal-cta" href="" target="_blank" rel="noopener noreferrer">
+        <span id="modal-linktext"></span>
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== MODAL =====
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalLocation = document.getElementById('modal-location');
+const modalDesc = document.getElementById('modal-desc');
+const modalCta = document.getElementById('modal-cta');
+const modalLinktext = document.getElementById('modal-linktext');
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('img');
+    modalImg.src = img ? img.src.replace('w=800', 'w=1200').replace('w=1400', 'w=1600') : '';
+    modalImg.alt = card.dataset.title || '';
+    modalTitle.textContent = card.dataset.title || '';
+    modalLocation.textContent = card.dataset.location || '';
+    modalDesc.textContent = card.dataset.desc || '';
+    modalCta.href = card.dataset.link || '#';
+    modalLinktext.textContent = card.dataset.linktext || 'Learn More';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== IMAGE ERROR HANDLING =====
+document.querySelectorAll('.card img').forEach(img => {
+  if (img.complete && img.naturalHeight === 0) {
+    img.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
